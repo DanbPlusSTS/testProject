@@ -1,0 +1,7 @@
+---
+#이하공통
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/biz/
+      suffix: .jsp
