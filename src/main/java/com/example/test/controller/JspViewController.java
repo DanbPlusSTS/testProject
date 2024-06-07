@@ -10,11 +10,18 @@ import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 public class JspViewController {
-	@RequestMapping(value={"/" , "/index"})
-    private ModelAndView main(HttpServletRequest request, Model model) {
+	@RequestMapping(value={"/jqueryTest"})
+    private ModelAndView jqueryTest(HttpServletRequest request, Model model) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("test"); // 메인화면으로 이동
+		mv.setViewName("jqueryTest"); // 메인화면으로 이동
 		return mv;
+    }
+	
+	@RequestMapping(value={"/javascriptTest"})
+    private ModelAndView main(HttpServletRequest request, Model model) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("javascriptTest"); // 메인화면으로 이동
+        return mv;
     }
 	
 }
