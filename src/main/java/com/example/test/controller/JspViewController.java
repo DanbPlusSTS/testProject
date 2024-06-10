@@ -33,19 +33,5 @@ public class JspViewController {
         return mv;
     }
 	
-	@GetMapping("/ajaxJavascript")
-      public Map<String,Object> ajaxJavascript(@RequestParam String input){
-	    Map<String, Integer> test = new HashMap<>();
-	    test.put("국어", 85);
-	    test.put("수학", 70);
-	    test.put("영어", 86);
-	    
-	    Map<String, Object> returnMap = new HashMap<>();
-	    returnMap.put("과목", input);
-	    returnMap.put("점수", test.get(input));
-	    
-        return returnMap;
-	}
-	
 	
 }
