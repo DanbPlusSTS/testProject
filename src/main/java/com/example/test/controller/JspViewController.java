@@ -26,6 +26,13 @@ public class JspViewController {
         return mv;
     }
 	
+	@RequestMapping(value={"/ajaxJavascript"})
+    private ModelAndView ajaxJavascript(HttpServletRequest request, Model model) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("ajaxJavascript"); // 메인화면으로 이동
+        return mv;
+    }
+	
 	@GetMapping(value={"/ajaxJavascript"})
       public Map<String,Object> ajaxJavascript(@RequestParam String input){
 	    Map<String, Integer> test = new HashMap<>();
@@ -38,7 +45,6 @@ public class JspViewController {
 	    returnMap.put("점수", test.get(input));
 	    
         return returnMap;
-	  
 	}
 	
 	
