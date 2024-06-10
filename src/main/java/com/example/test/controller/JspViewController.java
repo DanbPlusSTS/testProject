@@ -27,7 +27,7 @@ public class JspViewController {
 	@RequestMapping(value={"/ajaxJavascriptTest"})
     private ModelAndView ajaxJavascriptTest(HttpServletRequest request, Model model) {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("javascriptTest"); // 메인화면으로 이동
+        mv.setViewName("ajaxJavascriptTest"); // 메인화면으로 이동
         return mv;
     }
 	
