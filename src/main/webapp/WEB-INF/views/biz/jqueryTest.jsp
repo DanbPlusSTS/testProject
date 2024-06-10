@@ -12,13 +12,13 @@
 
 	<div class="first">
 		본인 정보 확인<br>
-	    이름 : <input type="text" class="info" id="st_name"><br>
-	    이메일 : <input type="email" class="info" id="st_email"><br>
-	    전화번호 : <input type="tel" class="info" id="st_tell"><br>
-	    생년월일 : <input type="date" class="info" id="st_birth"><br>
-	    나이(연나이) : <input type="number" class="info" value="0" id="st_years"><br>
-	    아이디 : <input type="text" class="info" id="st_id"><br>
-	    비밀번호 : <input type="password" class="info" id="st_pass"><br>
+	    이름 : <input type="text" class="info" id="name"><br>
+	    이메일 : <input type="email" class="info" id="email"><br>
+	    전화번호 : <input type="tel" class="info" id="tell"><br>
+	    생년월일 : <input type="date" class="info" id="birth"><br>
+	    나이(연나이) : <input type="number" class="info" value="0" id="years"><br>
+	    아이디 : <input type="text" class="info" id="id"><br>
+	    비밀번호 : <input type="password" class="info" id="pass"><br>
 	    <input type="submit" id="submit1">
 	    <div id="result1"></div>
 	</div>
@@ -33,7 +33,7 @@
 		<input type="checkbox" class="fruit" value="mango"/>망고<br>
 		<input type="checkbox" class="fruit" value="melon"/>메론<br>
 		  
-		<button id="button" onclick="test()">확인</button>
+		<button id="button" onclick="fruit()">확인</button>
 		<div id="result2"></div>
   
 	</div>
@@ -54,6 +54,51 @@
 
 <script type="text/javascript">
 
+
+	$("#submit1").on("click", function(){
+		var values = [];
+		var info = $(".info");
+		//console.log(info);
+		
+		for(var i=0; i<info.length; i++) {
+			values.push(info[i].value);
+		}
+		$("#result1").text(values);
+		
+	});
+
+
+	
+	function fruit() {
+		var checkboxes = $(".fruit");
+		//console.log(checkboxes);
+		var printButton = $("#button");
+		var selectedValues = [];
+
+		checkboxes.each(function(){
+			if($(this).is(":checked") == true){
+				//console.log($(this).val());
+				selectedValues.push($(this).val());
+				//console.log(selectedValues);
+				if (selectedValues.length > 0) {
+					var textContent = "선택된 값 : " + selectedValues.join(", ");
+					$("#result2").text(textContent) ;
+				} else {
+					$("#result2").text("선택된 값이 없습니다.");
+				} 
+				
+			}
+		});
+    }
+
+	
+	
+	function where(){
+		var value = "";
+		value += $('input[name="where"]:checked').val();
+		//console.log(value);
+		$("#result3").text(value); 
+	}
 	
 	
 </script>
