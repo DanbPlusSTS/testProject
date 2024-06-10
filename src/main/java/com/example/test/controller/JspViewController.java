@@ -33,7 +33,7 @@ public class JspViewController {
         return mv;
     }
 	
-	@GetMapping(value={"/ajaxJavascript"})
+	@GetMapping("/ajaxJavascript")
       public Map<String,Object> ajaxJavascript(@RequestParam String input){
 	    Map<String, Integer> test = new HashMap<>();
 	    test.put("국어", 85);
