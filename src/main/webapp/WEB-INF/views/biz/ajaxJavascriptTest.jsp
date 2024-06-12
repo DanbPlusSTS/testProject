@@ -66,15 +66,13 @@
 		//post방식
 		document.getElementById("ajaxPost").addEventListener("click", function(){
 			var kwamokPost = document.getElementById("kwamok2").value;
-			/* 입력된 데이터 Json 형식으로 변경 */
-			var reqJson = new Object();
-			reqJson.kwamok = kwamokPost;
+			var reqJson = kwamokPost;
 			//console.log(reqJson.kwamok);
 			var httpRequest = new XMLHttpRequest();
 			httpRequest.open('POST', '/ajaxJavascriptAction2', true);
 			httpRequest.responseType = "json";
 		    httpRequest.setRequestHeader('Content-Type', 'application/json');
-		    httpRequest.send(JSON.stringify(reqJson));
+		    httpRequest.send(reqJson);
 		    //console.log(JSON.stringify(reqJson));
 			httpRequest.onreadystatechange = function(){
 				if (httpRequest.readyState === XMLHttpRequest.DONE) {
