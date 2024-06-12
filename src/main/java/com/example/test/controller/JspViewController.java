@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,7 +38,6 @@ public class JspViewController {
         return mv;
     }
 	
-	@SuppressWarnings("unchecked")
 	@GetMapping("/ajaxJavascriptAction")
 	@ResponseBody
 	public JSONObject getAjaxJavascript(@RequestParam(value="kwamok", required=false) String kwamok){
@@ -55,10 +55,9 @@ public class JspViewController {
 	    return returnObj;
 	} 
 	
-	@SuppressWarnings("unchecked")
     @PostMapping("/ajaxJavascriptAction2")
 	@ResponseBody
-    public JSONObject postAjaxJavascript(@RequestParam(value="kwamok", required=false) String kwamok){
+    public JSONObject postAjaxJavascript(@RequestBody String kwamok){
         JSONObject resultObj = new JSONObject();  
         resultObj.put("국어", 85);
         resultObj.put("수학", 70);
@@ -68,7 +67,7 @@ public class JspViewController {
         JSONObject returnObj = new JSONObject();
         returnObj.put("subject", kwamok);
         returnObj.put("entry", resultObj.get(kwamok));
-        System.out.println("2 : " + returnObj);
+        //System.out.println("2 : " + returnObj);
             
         return returnObj;
     }
@@ -80,10 +79,35 @@ public class JspViewController {
         mv.setViewName("ajaxJqueryTest"); // 메인화면으로 이동
         return mv;
     }
+    
+    /*
+     * @GetMapping("http://vcut.danbplus.com/data/SystemInfo.act")
+     * 
+     * @ResponseBody public JSONObject getAjaxJquery(@RequestParam(value="name", required=false)
+     * String name, @RequestParam(value="email", required=false) String email){ JSONObject returnObj
+     * = new JSONObject(); returnObj.put("name", name); returnObj.put("email", email);
+     * //System.out.println("2 : " + returnObj);
+     * 
+     * return returnObj; }
+     */
+	
+    @PostMapping("/ajaxJqueryAction2")
+    @ResponseBody
+    public HashMap<String, Object> postAjaxJquery(@RequestBody Map<String,String> map ) {
+      String name = (String)map.get("name");
+      String email = (String)map.get("email");
+      //System.out.println("name : " + name + ", email : " + email);
+     
+      HashMap<String , Object> resultMap = new HashMap<String, Object>();
+      resultMap.put("name", name);
+      resultMap.put("email", email);  
+      System.out.println(resultMap);
+      
+      return resultMap;
+    }
 	
 	
-	
-	
+
 	
 	
 }
