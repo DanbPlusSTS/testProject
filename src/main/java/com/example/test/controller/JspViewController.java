@@ -106,7 +106,20 @@ public class JspViewController {
       return resultMap;
     }
 	
+    
+    @RequestMapping(value={"/formTest"})
+    private ModelAndView formTest(HttpServletRequest request, Model model) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("formTest"); // 메인화면으로 이동
+        return mv;
+    }
 	
+    @RequestMapping(value={"/formTestResult"})
+    private ModelAndView formTestResult(HttpServletRequest request, Model model) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("formTestResult"); // 메인화면으로 이동
+        return mv;
+    }
 
 	
 	
