@@ -3,6 +3,8 @@ package com.example.test.sample;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.junit.jupiter.api.Test;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -69,10 +71,45 @@ class DataConvertTest {
 	    
 	    
 	    
-	    //JSONArray
+	    //JSONArray : JSONObject를 배열 형태로 나타낼 때 사용
+	    JSONObject json3 = new JSONObject();
+	    json3.put("json3", 1);
+	    JSONObject json4 = new JSONObject();
+	    json4.put("json4", 2);
+	    
+	    JSONArray jArray = new JSONArray();
+	    jArray.add(json3);
+	    jArray.add(json4);
+	    System.out.println("jArray : " + jArray);
 	    
 	    
 	    
+	    
+	    
+	    
+        System.out.println("------------------------------------------------------------------------------------------------------");
+        
+	    
+	    
+        
+        
+        //Map데이터 2개 -> JSONArray
+        Map<String, Object> map1 = new HashMap<>();
+        map1.put("name", "짱구");
+        map1.put("age", 5);
+        
+        Map<String, Object> map2 = new HashMap<>();
+        map2.put("name", "맹구");
+        map2.put("age", 5);
+        
+        JSONArray jsonArray1 = new JSONArray();
+        JSONObject jsonObj1 = new JSONObject(map1);
+        JSONObject jsonObj2 = new JSONObject(map2);
+        
+        jsonArray1.add(map1);
+        jsonArray1.add(map2);
+        System.out.println(jsonArray1);
+        
 	  
 	}
 }
