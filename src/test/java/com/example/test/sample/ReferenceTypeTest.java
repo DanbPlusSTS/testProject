@@ -26,7 +26,7 @@ class ReferenceTypeTest {
 	    
 	    //List
 	    List<String> list = new ArrayList<>();
-	    list.add("나신영");
+	    list.add("qwer");
 	    list.add("단비플러스");
 	    
 	    System.out.println("list : " + list);
@@ -34,9 +34,9 @@ class ReferenceTypeTest {
 	    
 	    //Map
 	    Map<String, String> map = new HashMap<>();
-	    map.put("name", "나신영");
+	    map.put("name", "poiu");
 	    map.put("age", "27");
-	    map.put("address", "부천");
+	    map.put("address", "seoul");
 	    
 	    System.out.println("map : " + map);
 	    
@@ -52,9 +52,9 @@ class ReferenceTypeTest {
 	    
 	    //json
 	    JSONObject obj = new JSONObject();
-	    obj.put("name", "나신영");
+	    obj.put("name", "zxcv");
 	    obj.put("company", "단비플러스");
-	    obj.put("age", "27");
+	    obj.put("age", "50");
 	    
 	    System.out.println("obj : " + obj);
 	    
